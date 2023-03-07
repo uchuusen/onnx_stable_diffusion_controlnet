@@ -6,7 +6,6 @@ from diffusers import UniPCMultistepScheduler
 from diffusers.pipelines.onnx_utils import OnnxRuntimeModel
 from pipeline_onnx_stable_diffusion_controlnet import OnnxStableDiffusionControlNetPipeline
 import onnxruntime as ort
-import torch
 
 
 
