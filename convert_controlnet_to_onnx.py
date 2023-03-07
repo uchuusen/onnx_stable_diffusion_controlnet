@@ -97,7 +97,7 @@ def convert_models(model_path: str, output_path: str, opset: int, fp16: bool, at
     dtype=torch.float32
     device = "cpu"
         
-    cnet_path = output_path / "model.onnx"
+    cnet_path = output_path / "cnet" / "model.onnx"
     onnx_export(
         controlnet,
         model_args=(
