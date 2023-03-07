@@ -1,7 +1,6 @@
 # onnx_stable_diffusion_controlnet
 WIP: Get Stable DIffusion Controlnet running with DirectML via ONNX
 <br>The original conversion script is from here: https://github.com/Amblyopius/Stable-Diffusion-ONNX-FP16
-<br>I couldn't figure out how to pass a tuple of tensors as an input with Onnxruntime, so I just modified UNet2DConditionModel and renamed it UNet2DConditionModel_Cnet so that instead of a tuple of 12 tensors, it's 12 separate tensors passed as individual arguments.
 <br>For now, the conversion scripts only support diffusers format.
 # How to use it:
 First you have to convert the controlnet model to ONNX. I tested with Canny and Openpose. The example script testonnxcnet.py uses Canny.
@@ -22,3 +21,6 @@ Now you can run the test script. Cross your fingers!
 ```
 python testonnxcnet.py
 ```
+# Random notes
+<br>I couldn't figure out how to pass a tuple of tensors as an input with Onnxruntime, so I just modified UNet2DConditionModel and renamed it UNet2DConditionModel_Cnet so that instead of a tuple of 12 tensors, it's 12 separate tensors passed as individual arguments.
+
