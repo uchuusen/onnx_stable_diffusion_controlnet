@@ -16,7 +16,7 @@ Optionally enable attention slicing by adding this argument(you can use auto or 
 ```
 You now have the controlnet model converted. Next you need to convert a Stable Diffusion model to use it. Note that you can't use a model you've already converted with another script with controlnet, as it needs special inputs that standard ONNX conversions don't support, so you need to convert with this modified script. Again, you can optionally enable attention slicing by adding the same argument from before.
 ```
-python conv_sd_to_onnx.py --model_path "runwayml/stable-diffusion-v1-5" --output_path "./model/sd15_onnx" --fp16
+python conv_sdcnet_to_onnx.py --model_path "runwayml/stable-diffusion-v1-5" --output_path "./model/sd15_onnx" --fp16
 ```
 Now you can run the test script. Cross your fingers!
 ```
