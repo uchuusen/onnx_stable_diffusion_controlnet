@@ -27,7 +27,7 @@ opts = ort.SessionOptions()
 opts.enable_cpu_mem_arena = False
 opts.enable_mem_pattern = False
 
-controlnet = OnnxRuntimeModel.from_pretrained("./model/cnet/canny_onnx", sess_options=opts, provider="DmlExecutionProvider")
+controlnet = OnnxRuntimeModel.from_pretrained("./model/canny_onnx/cnet", sess_options=opts, provider="DmlExecutionProvider")
 pipe = OnnxStableDiffusionControlNetPipeline.from_pretrained(
     "./model/sd15_onnx", controlnet=controlnet,
     sess_options=opts, 
