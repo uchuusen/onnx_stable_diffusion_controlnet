@@ -463,7 +463,7 @@ if __name__ == "__main__":
             from_safetensors=args.model_path.endswith(".safetensors")
         )
     else:
-        unet = UNet2DConditionModel_Cnet.from_pretrained(args.model_path + "/unet")
+        unet = UNet2DConditionModel_Cnet.from_pretrained(args.model_path,subfolder = "unet")
         pl = StableDiffusionPipeline.from_pretrained(args.model_path,
             torch_dtype=dtype, unet=unet).to(device)
 
@@ -474,7 +474,7 @@ if __name__ == "__main__":
                 vae = AutoencoderKL.from_pretrained(args.vae_path[:-4],subfolder='vae')
             else:
                 vae = AutoencoderKL.from_pretrained(args.vae_path)
-            unet = UNet2DConditionModel_Cnet.from_pretrained(args.model_path + "/unet")
+            unet = UNet2DConditionModel_Cnet.from_pretrained(args.model_path, subfolder = "unet")
             pl = StableDiffusionPipeline.from_pretrained(tmpdirname,
                 torch_dtype=dtype, vae=vae, unet=unet).to(device)
 
@@ -487,7 +487,7 @@ if __name__ == "__main__":
                 clipconf['num_hidden_layers'] = clipconf['num_hidden_layers']-args.clip_skip+1
             with open(confname, 'w', encoding="utf-8") as f:
                 json.dump(clipconf, f, indent=1)
-            unet = UNet2DConditionModel_Cnet.from_pretrained(args.model_path + "/unet")
+            unet = UNet2DConditionModel_Cnet.from_pretrained(args.model_path, subfolder = "unet")
             pl = StableDiffusionPipeline.from_pretrained(tmpdirname,
                 torch_dtype=dtype, unet=unet).to(device)
 
